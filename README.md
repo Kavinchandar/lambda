@@ -1,4 +1,3 @@
-# lambda (Backend)
 Building a cool support chatbot that can answer based on contextual data (fine tuning LLMs and RAG)
 
 
