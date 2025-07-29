@@ -1,5 +1,6 @@
 from fastapi import FastAPI, WebSocket
 from fastapi.responses import JSONResponse
+from app.services import generate_response, generate_tokens
 import asyncio
 
 app = FastAPI()
@@ -26,11 +27,4 @@ async def websocket_chat(websocket: WebSocket):
             break
     await websocket.close()
 
-# ---- Dummy Response Generators ----
-def generate_response(prompt: str):
-    return f"Echo: {prompt}"
 
-def generate_tokens(prompt: str):
-    text = f"Streaming response for: {prompt}"
-    for word in text.split():
-        yield word + " "
