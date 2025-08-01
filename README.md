@@ -1,5 +1,5 @@
-Build Your Own “Search-Powered” Document Copilot
-
+Build Your Own “Search-Powered” Document Copilot (Backend)
+ 
 
 Stack: Python (FastAPI), Elasticsearch for document indexing/search, LangChain for LLM/RAG pipeline, React or Streamlit for UI, REST/GraphQL API layer, and optional AWS for hosting.
 Flow:
