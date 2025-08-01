@@ -1,39 +1,14 @@
-Building a cool support chatbot that can answer based on contextual data (fine tuning LLMs and RAG)
+Build Your Own “Search-Powered” Document Copilot
 
 
-1. Frontend (User Interface)
-React Native + Expo
-
-2. Backend (API & Orchestration)
-FastAPI (Python): Simple, async, integrates with ML easily.
-
-3. LLM Layer
-Base Model: Open-source → LLaMA 3, Mistral, or Falcon (smaller 7B-13B for cost).
-Fine-Tuning:
-LoRA/QLoRA with Hugging Face + PEFT.
-Training on your domain support tickets / FAQs.
-Serving:
-vLLM or text-generation-inference → optimized inference server.
-Deploy on GPU cloud (RunPod, Lambda Labs, or AWS).
+Stack: Python (FastAPI), Elasticsearch for document indexing/search, LangChain for LLM/RAG pipeline, React or Streamlit for UI, REST/GraphQL API layer, and optional AWS for hosting.
+Flow:
 
 
-4. RAG Pipeline
-Embedding Models: text-embedding-ada-002 (OpenAI) or sentence-transformers (open-source).
-Vector Database:
-Pinecone → managed, easy.
-Weaviate → open-source + production-ready.
-pgvector → if you want to keep it simple inside PostgreSQL.
-Document Loading & Splitting: LangChain or LlamaIndex.
+Upload docs to app → parsed & indexed in Elasticsearch.
 
 
-5. Storage & Infra
-Relational DB: PostgreSQL → store user sessions, auth, analytics.
-Deployment:
-Frontend: Vercel.
-Backend: AWS (ECS/Fargate) or GCP Cloud Run.
-Vector DB: Pinecone SaaS or self-host.
+User asks questions → LangChain orchestrates retrieving relevant chunks from Elasticsearch (or external web via Perplexity), sends to an LLM for answer synthesis with citations.
 
 
-6. Observability & Scaling
-Logging: OpenTelemetry + Grafana.
-Queue: Redis or RabbitMQ if async processing needed (batching queries).
+UI displays answers—sources, highlights, feedback, export/share features.
